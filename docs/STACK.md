@@ -17,25 +17,25 @@ Recomendação para atingir o MVP descrito no [PRD](../prd/bolao.md), com foco e
 | Jobs/cron | **Vercel Cron** ou **Supabase Edge Functions** | Sync de placares da API |
 | Cache de API | Tabelas `matches`, `competitions` no Postgres | Respeita rate limit; app não bate na API a cada request |
 | Hospedagem | **Vercel** (app) + **Supabase** (DB/auth) | Free tier generoso para MVP entre amigos |
-| API de futebol | **football-data.org** (primária) | Gratuita, estável, cobre Brasileirão e Copa |
+| API de futebol | **football-data.org** | Gratuita, estável, cobre Brasileirão e Copa |
 
-## API de futebol — estratégia A/B
+## API de futebol — football-data.org
 
-APIs gratuitas **existem** e atendem a decisão da pergunta 3 (modo A).
+Única fonte de dados automáticos de competições e partidas no MVP (decisão Q3, modo A).
 
-### Primária: [football-data.org](https://www.football-data.org/)
+### [football-data.org](https://www.football-data.org/)
 
 - **Custo:** gratuito para competições principais (declarado como permanente pelo projeto).
 - **Cobertura free:** Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Champions League, **Brasileirão Série A**, **Copa do Mundo**, Eurocopa, entre outras (~12 competições).
 - **Dados:** fixtures, resultados, classificação, artilharia (em planos pagos; na v1 campeão/artilheiro é manual pelo criador).
-- **Limite:** ~10 requisições/minuto no free tier; placares podem ter delay (aceitável para bolão entre amigos, não live betting).
+- **Limite free tier:** **máximo 10 chamadas por minuto** — o sync nunca deve exceder essa taxa (throttle ou fila entre requisições).
+- **Variável `.env`:** `FOOTBALL_DATA_API_KEY` — registrar em [football-data.org/client/register](https://www.football-data.org/client/register).
 - **Uso no app:** job cron sincroniza jogos e resultados 1–4x/dia + após janelas de jogos.
 
-### Secundária (opcional): [API-Football](https://www.api-football.com/)
+**Regras de implementação:**
 
-- **Custo:** 100 req/dia no free tier.
-- **Quando usar:** competições fora do catálogo football-data.org ou necessidade de mais ligas no futuro.
-- **Não usar** como única fonte no free tier — cota diária é apertada para sync contínuo.
+1. Nunca chamar a API no page view do usuário — jobs cron leem a API, gravam em `competitions` / `matches` no Postgres e a UI só consulta o banco.
+2. **Não fazer mais de 10 chamadas por minuto** à football-data.org (rate limit do free tier).
 
 ### Fallback manual (modo B)
 
@@ -115,7 +115,7 @@ Escala para centenas de usuários sem custo. Milhares de usuários simultâneos 
 
 | Risco | Mitigação |
 |-------|-----------|
-| Rate limit da API | Cache agressivo no DB; sync por cron, não por request do usuário |
+| Rate limit da API | Máx. **10 chamadas/minuto** à football-data.org; cache no DB; sync por cron, não por request do usuário |
 | API sem Brasileirão/Copa em algum momento | Fallback manual já previsto no produto |
 | Link vazado (sem limite de participantes) | Token UUID longo; termos de uso; feature futura de limite opcional |
 | Posicionamento legal (não ser casa de apostas) | Sem dinheiro no app; copy clara; sem odds; privado por link |
@@ -124,5 +124,4 @@ Escala para centenas de usuários sem custo. Milhares de usuários simultâneos 
 
 1. Login social (Google)
 2. PWA + push notifications
-3. API-Football paga para mais competições
-4. E-mail de lembrete antes dos jogos
+3. E-mail de lembrete antes dos jogos

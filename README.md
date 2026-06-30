@@ -35,6 +35,7 @@ cp .env.example .env
 - `NEXT_PUBLIC_SUPABASE_URL` — URL do projeto
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — chave anon/public
 - `DATABASE_URL` — connection string PostgreSQL (pooler Supabase)
+- `FOOTBALL_DATA_API_KEY` — chave de [football-data.org](https://www.football-data.org/) (necessária a partir da issue #4; **máx. 10 chamadas/minuto**)
 
 4. Aplique a migration inicial:
 

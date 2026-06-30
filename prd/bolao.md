@@ -181,10 +181,10 @@ O produto **não envolve dinheiro** — é ranking e diversão entre conhecidos.
 
 ### Integração com API de futebol
 
-- **Fonte primária:** football-data.org (gratuita) — fixtures e resultados para competições do catálogo free (inclui Brasileirão Série A, Copa do Mundo, ligas europeias principais).
+- **Fonte de dados automáticos:** football-data.org (gratuita) — fixtures e resultados para competições do catálogo free (inclui Brasileirão Série A, Copa do Mundo, ligas europeias principais).
 - **Estratégia de sync:** job cron (1–4x/dia + após janelas de jogos), nunca por request do usuário; dados cacheados em tabelas `competitions` e `matches`.
-- **Fallback manual:** quando competição não tem cobertura API, criador cadastra times, jogos e informa resultados; fluxo manual é P0 para quem escolhe essa opção.
-- **API secundária opcional futura:** API-Football para competições fora do catálogo — não dependência do MVP.
+- **Rate limit:** máximo **10 chamadas por minuto** à football-data.org — o sync deve respeitar esse teto.
+- **Fallback manual:** quando competição não tem cobertura na football-data.org, criador cadastra times, jogos e informa resultados; fluxo manual é P0 para quem escolhe essa opção.
 - **Campeão e artilheiro:** sempre entrada manual pelo criador na v1, independente de API.
 
 ### Modelo de dados conceitual
@@ -356,7 +356,7 @@ Vercel Hobby, Supabase Free e football-data.org free tier cobrem o MVP sem custo
 
 ### Roadmap pós-v1 (referência, não escopo)
 
-Login social, PWA + push, API-Football paga para mais competições, e-mail de lembrete antes dos jogos, palpites de fases eliminatórias no modo C, limite opcional de participantes.
+Login social, PWA + push, e-mail de lembrete antes dos jogos, palpites de fases eliminatórias no modo C, limite opcional de participantes.
 
 ### Documentação relacionada
 

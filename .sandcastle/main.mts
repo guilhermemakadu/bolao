@@ -13,6 +13,7 @@ await run({
   maxIterations: 5,
   completionSignal: "<promise>NO MORE TASKS</promise>",
   branchStrategy: { type: "merge-to-head" },
+  copyToWorktree: [".env"],
   hooks: {
     sandbox: {
       onSandboxReady: [{ command: "npm install" }],
