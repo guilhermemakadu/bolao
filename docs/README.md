@@ -16,7 +16,7 @@ Amigos criam bolões privados de um torneio, configuram modos de palpite e pontu
 
 ## Status
 
-- **Fase:** Planejamento / pré-desenvolvimento
+- **Fase:** Fase 0 — scaffold + auth implementados
 - **Versão alvo:** v1 (MVP)
 - **PRD:** v2.0 em `prd/bolao.md`
 - **Idioma:** pt-BR (arquitetura pronta para i18n)

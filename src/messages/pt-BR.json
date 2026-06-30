@@ -1,0 +1,35 @@
+{
+  "common": {
+    "appName": "Bolão entre Amigos",
+    "loading": "Carregando...",
+    "submit": "Enviar",
+    "back": "Voltar"
+  },
+  "auth": {
+    "loginTitle": "Entrar",
+    "signupTitle": "Criar conta",
+    "email": "E-mail",
+    "password": "Senha",
+    "name": "Nome",
+    "loginButton": "Entrar",
+    "signupButton": "Criar conta",
+    "noAccount": "Não tem conta?",
+    "hasAccount": "Já tem conta?",
+    "signupLink": "Cadastre-se",
+    "loginLink": "Faça login",
+    "logout": "Sair",
+    "loginError": "E-mail ou senha inválidos",
+    "signupError": "Não foi possível criar a conta",
+    "emailRequired": "Informe seu e-mail",
+    "passwordRequired": "Informe sua senha",
+    "nameRequired": "Informe seu nome",
+    "passwordMin": "A senha deve ter pelo menos 6 caracteres",
+    "invalidEmail": "E-mail inválido"
+  },
+  "dashboard": {
+    "title": "Meus bolões",
+    "welcome": "Bem-vindo, {name}!",
+    "empty": "Você ainda não participa de nenhum bolão.",
+    "settings": "Configurações"
+  }
+}
