@@ -29,7 +29,35 @@
   "dashboard": {
     "title": "Meus bolões",
     "welcome": "Bem-vindo, {name}!",
-    "empty": "Você ainda não participa de nenhum bolão.",
-    "settings": "Configurações"
+    "settings": "Configurações",
+    "nav": {
+      "dashboard": "Início",
+      "settings": "Configurações"
+    },
+    "sections": {
+      "created": "Meus bolões",
+      "participating": "Participando"
+    },
+    "empty": {
+      "created": "Você ainda não criou nenhum bolão.",
+      "participating": "Você ainda não participa de nenhum bolão."
+    }
+  },
+  "bolao": {
+    "statusLegend": "Status dos bolões",
+    "status": {
+      "draft": "Rascunho",
+      "open": "Aberto",
+      "inProgress": "Em andamento",
+      "archived": "Arquivado"
+    }
+  },
+  "settings": {
+    "pageTitle": "Configurações",
+    "title": "Nome de exibição",
+    "description": "Atualize como outros participantes veem você nos rankings.",
+    "save": "Salvar",
+    "success": "Nome atualizado com sucesso.",
+    "updateError": "Não foi possível atualizar o nome."
   }
 }
