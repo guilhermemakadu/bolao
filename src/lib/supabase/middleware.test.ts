@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 const PROTECTED_ROUTES = ["/dashboard", "/configuracoes"];
-const AUTH_ROUTES = ["/login", "/cadastro"];
+const AUTH_ROUTES = ["/login", "/cadastro", "/esqueci-senha"];
 
 function shouldRedirectToLogin(pathname: string, isAuthenticated: boolean): boolean {
   const isProtected = PROTECTED_ROUTES.some((route) => pathname.startsWith(route));

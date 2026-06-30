@@ -24,7 +24,20 @@
     "passwordRequired": "Informe sua senha",
     "nameRequired": "Informe seu nome",
     "passwordMin": "A senha deve ter pelo menos 6 caracteres",
-    "invalidEmail": "E-mail inválido"
+    "invalidEmail": "E-mail inválido",
+    "forgotPasswordLink": "Esqueci minha senha",
+    "forgotPasswordTitle": "Recuperar senha",
+    "forgotPasswordDescription": "Informe seu e-mail e enviaremos um link para redefinir sua senha.",
+    "forgotPasswordButton": "Enviar link",
+    "forgotPasswordSuccess": "Se existir uma conta com esse e-mail, você receberá um link para redefinir sua senha.",
+    "forgotPasswordError": "Não foi possível enviar o e-mail de recuperação",
+    "updatePasswordTitle": "Nova senha",
+    "updatePasswordDescription": "Escolha uma nova senha para sua conta.",
+    "confirmPassword": "Confirmar senha",
+    "updatePasswordButton": "Redefinir senha",
+    "updatePasswordError": "Não foi possível redefinir a senha",
+    "passwordMismatch": "As senhas não coincidem",
+    "backToLogin": "Voltar ao login"
   },
   "dashboard": {
     "title": "Meus bolões",

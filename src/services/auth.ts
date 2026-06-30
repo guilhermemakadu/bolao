@@ -1,9 +1,16 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { buildPasswordResetRedirectUrl, buildSiteUrl } from "@/lib/site-url";
 import { createClient } from "@/lib/supabase/server";
-import type { LoginInput, SignupInput } from "@/lib/validators/auth";
+import type {
+  ForgotPasswordInput,
+  LoginInput,
+  SignupInput,
+  UpdatePasswordInput,
+} from "@/lib/validators/auth";
 import { syncUserProfile } from "@/services/users";
 
 export type AuthActionResult =
@@ -52,4 +59,44 @@ export async function signOutAction(): Promise<void> {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/login");
+}
+
+async function getSiteUrl(): Promise<string> {
+  const headersList = await headers();
+  const host = headersList.get("host") ?? "localhost:3000";
+  const protocol = headersList.get("x-forwarded-proto") ?? "http";
+  return buildSiteUrl(host, protocol);
+}
+
+export async function requestPasswordResetAction(
+  input: ForgotPasswordInput,
+): Promise<AuthActionResult> {
+  const supabase = await createClient();
+  const siteUrl = await getSiteUrl();
+
+  const { error } = await supabase.auth.resetPasswordForEmail(input.email, {
+    redirectTo: buildPasswordResetRedirectUrl(siteUrl),
+  });
+
+  if (error) {
+    return { success: false, error: "forgotPasswordError" };
+  }
+
+  return { success: true };
+}
+
+export async function updatePasswordAction(
+  input: UpdatePasswordInput,
+): Promise<AuthActionResult> {
+  const supabase = await createClient();
+
+  const { error } = await supabase.auth.updateUser({
+    password: input.password,
+  });
+
+  if (error) {
+    return { success: false, error: "updatePasswordError" };
+  }
+
+  return { success: true };
 }
