@@ -42,6 +42,7 @@
   "dashboard": {
     "title": "Meus bolões",
     "welcome": "Bem-vindo, {name}!",
+    "createBolao": "Criar bolão",
     "settings": "Configurações",
     "nav": {
       "dashboard": "Início",
@@ -63,6 +64,91 @@
       "open": "Aberto",
       "inProgress": "Em andamento",
       "archived": "Arquivado"
+    }
+  },
+  "wizard": {
+    "pageTitle": "Criar bolão",
+    "title": "Novo bolão",
+    "cancel": "Cancelar",
+    "back": "Voltar",
+    "next": "Continuar",
+    "finish": "Abrir bolão",
+    "stepProgress": "Passo {current} de {total}",
+    "steps": {
+      "competition": "Competição",
+      "modes": "Modos de palpite",
+      "points": "Pontuação",
+      "tiebreaker": "Desempate",
+      "details": "Nome e descrição"
+    },
+    "competition": {
+      "label": "Escolha a competição do bolão"
+    },
+    "modes": {
+      "label": "Quais modos de palpite estarão ativos?",
+      "exactScore": "Placar exato (Modo A)",
+      "exactScoreHint": "Palpite do placar completo de cada partida.",
+      "result": "Resultado (Modo B)",
+      "resultHint": "Vitória do mandante, empate ou vitória do visitante.",
+      "tournamentExtras": "Extras de torneio (Modo C)",
+      "tournamentExtrasHint": "Campeão e artilheiro do torneio."
+    },
+    "points": {
+      "label": "Pontos por tipo de acerto",
+      "exactScore": "Placar exato",
+      "result": "Resultado",
+      "champion": "Campeão",
+      "topScorer": "Artilheiro"
+    },
+    "tiebreaker": {
+      "label": "Regra de desempate",
+      "mostExactScores": "Mais placares exatos",
+      "mostExactScoresHint": "Em caso de empate em pontos, quem acertou mais placares exatos fica à frente."
+    },
+    "details": {
+      "name": "Nome do bolão",
+      "description": "Descrição (opcional)",
+      "descriptionHint": "Uma frase para os participantes entenderem o bolão."
+    },
+    "errors": {
+      "competitionRequired": "Selecione uma competição.",
+      "modeRequired": "Ative pelo menos um modo de palpite.",
+      "nameRequired": "Informe o nome do bolão.",
+      "invalidRules": "Regras inválidas.",
+      "not_found": "Bolão não encontrado.",
+      "forbidden": "Você não tem permissão para esta ação.",
+      "invalid_status": "Esta ação não é permitida no status atual.",
+      "competition_not_found": "Competição não encontrada.",
+      "unknownError": "Não foi possível concluir a operação."
+    }
+  },
+  "bolaoRules": {
+    "pageTitle": "Regras do bolão",
+    "title": "Regras — {name}",
+    "description": "Enquanto o bolão estiver aberto, você pode ajustar as regras antes de iniciar.",
+    "modesLabel": "Modos ativos",
+    "pointsLabel": "Pontuação",
+    "modes": {
+      "exactScore": "Placar exato",
+      "result": "Resultado",
+      "tournamentExtras": "Extras de torneio"
+    },
+    "points": {
+      "exactScore": "Placar exato",
+      "result": "Resultado",
+      "champion": "Campeão",
+      "topScorer": "Artilheiro"
+    },
+    "save": "Salvar regras",
+    "delete": "Excluir bolão",
+    "deleteConfirm": "Tem certeza que deseja excluir \"{name}\"? Esta ação não pode ser desfeita.",
+    "success": "Regras atualizadas.",
+    "back": "Voltar",
+    "errors": {
+      "invalidRules": "Regras inválidas.",
+      "invalid_status": "As regras só podem ser editadas enquanto o bolão estiver aberto.",
+      "not_found": "Bolão não encontrado.",
+      "unknownError": "Não foi possível salvar as regras."
     }
   },
   "settings": {

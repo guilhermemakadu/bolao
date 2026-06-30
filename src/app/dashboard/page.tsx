@@ -1,9 +1,11 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
 import { BolaoListSection } from "@/components/bolao/bolao-list-section";
 import { BolaoStatusBadge } from "@/components/bolao/bolao-status-badge";
 import { AppNav } from "@/components/layout/app-nav";
+import { Button } from "@/components/ui/button";
 import { BOLAO_STATUSES } from "@/lib/bolao/status";
 import { createClient } from "@/lib/supabase/server";
 import { listUserBoloes } from "@/services/boloes";
@@ -41,9 +43,14 @@ export default async function DashboardPage() {
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-4 py-6 sm:py-8">
       <header className="mb-6 space-y-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">{t("title")}</h1>
-          <p className="mt-1 text-sm text-slate-600 sm:text-base">{t("welcome", { name: displayName })}</p>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">{t("title")}</h1>
+            <p className="mt-1 text-sm text-slate-600 sm:text-base">{t("welcome", { name: displayName })}</p>
+          </div>
+          <Button asChild>
+            <Link href="/boloes/novo">{t("createBolao")}</Link>
+          </Button>
         </div>
         <AppNav
           dashboardLabel={t("nav.dashboard")}
