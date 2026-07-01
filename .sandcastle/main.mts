@@ -12,8 +12,8 @@ await run({
   promptFile: "./.sandcastle/prompt.md",
   maxIterations: 5,
   completionSignal: "<promise>NO MORE TASKS</promise>",
-  branchStrategy: { type: "merge-to-head" },
-  copyToWorktree: [".env"],
+  // head: bind-mount do repo host — sem worktree, commits direto na branch atual
+  branchStrategy: { type: "head" },
   hooks: {
     sandbox: {
       onSandboxReady: [{ command: "npm install" }],

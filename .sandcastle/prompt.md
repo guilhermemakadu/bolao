@@ -53,7 +53,7 @@ Skip issues blocked by an open issue (`blocked by #N`, `depends on #N`, or expli
 
 # Done
 
-- After committing, remove any extra git worktrees you created during development. Run `git worktree list`, then for each path you added (not the current sandbox at `/home/agent/workspace`): `git worktree remove --force <worktree-path>`. Sandcastle auto-removes the iteration worktree when it has no uncommitted changes.
+- After committing, remove any extra git worktrees you created during development. Run `git worktree list`, then for each path you added (not the current sandbox at `/home/agent/workspace`): `git worktree remove --force <worktree-path>`.
 
 When **all** actionable issues are complete (or you are blocked on every remaining one), or the open-issues list is empty, output:
 
